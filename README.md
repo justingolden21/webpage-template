@@ -6,7 +6,7 @@ A simple webpage template
 
 ### Links
 
-- Live website: https://justingolden21.github.io/webpage-template/
+- Live demo: https://justingolden21.github.io/webpage-template/
 
 - This repo: https://github.com/justingolden21/webpage-template
 
