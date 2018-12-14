@@ -1,14 +1,14 @@
-# <img src="icon.svg" width="128px"> replace me
+# <img src="icon.png" width="64px"> Webpage Template
 
 ### About
 
-replace me
+A simple webpage template
 
 ### Links
 
-- Live website: https://justingolden21.github.io/replaceme/
+- Live website: https://justingolden21.github.io/webpage-template/
 
-- This repo: https://github.com/justingolden21/replaceme
+- This repo: https://github.com/justingolden21/webpage-template
 
 <hr>
 
