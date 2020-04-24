@@ -5,12 +5,12 @@ img, button {
 	user-select: none; /* Standard */
 }
 ::-moz-selection {
-	background: hsl(0, 0%, 90%) !important;
+	background: #e6e6e6;
 }
 ::selection {
-	background: hsl(0, 0%, 90%) !important;
+	background: #e6e6e6;
 }
 
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
 
-}
+}*/
