@@ -6,14 +6,14 @@ A simple webpage template
 
 ### Links
 
-- Live demo: https://justingolden21.github.io/webpage-template/
+- Live demo: https://justingolden.me/webpage-template/
 
 - This repo: https://github.com/justingolden21/webpage-template
 
 <hr>
 
-- My website: https://justingolden21.github.io
+- My website: https://justingolden.me
 
 - My repos: https://github.com/justingolden21
 
-- Contact me: justingolden21@gmail.com
+- Contact me: contact@justingolden.me
