@@ -75,7 +75,7 @@ start chrome --new-tab "http://localhost:8000/"
 py -m http.server
 PAUSE"""
 
-styles_text = """img, button {
+css_text = """img, button {
 	user-drag: none; 
 	user-select: none;
 	-moz-user-select: none;
@@ -108,11 +108,11 @@ body {
 @media (min-width: 1280px) { /* xl */
 }"""
 
-dist_js_text = """window.onload = ()=> {
+js_text = """window.onload = ()=> {
 	console.log('page loaded');
 };"""
 
-index_html_text = """<!DOCTYPE html>
+html_text = """<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>%(project_name)s</title>
@@ -145,7 +145,7 @@ files_to_create = {
 	'.gitattributes': gitattributes_text,
 	'.gitignore': gitignore_text,
 	'localhost.bat': localhost_text,
-	'index.html': index_html_text%data,
+	'index.html': html_text%data,
 }
 
 folder_name = project_dev_name
@@ -161,7 +161,7 @@ create_dir(folder_name + '/js')
 create_dir(folder_name + '/img')
 
 with open(folder_name + '/css/styles.css', 'x') as f:
-	f.write(styles_text)
+	f.write(css_text)
 with open(folder_name + '/js/scripts.js', 'x') as f:
 	f.write(js_text)
 
