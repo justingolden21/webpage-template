@@ -12,5 +12,8 @@ def recursive_copy(src, dest):
 			os.mkdir(new_dest)
 			recursive_copy(file_path, new_dest)
 
+if os.path.exists('docs/'):
+	shutil.rmtree('docs/')
+os.makedirs('docs/')
 recursive_copy('dist/', 'docs/')
 input('Done.')
