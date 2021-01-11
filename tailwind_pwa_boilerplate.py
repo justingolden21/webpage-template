@@ -374,6 +374,26 @@ html_404_text = """<!DOCTYPE html>
 </body>
 </html>"""
 
+deploy_to_docs_py = """import os, shutil
+
+def recursive_copy(src, dest):
+	for item in os.listdir(src):
+		file_path = os.path.join(src, item)
+
+		if os.path.isfile(file_path):
+			shutil.copy(file_path, dest)
+
+		elif os.path.isdir(file_path):
+			new_dest = os.path.join(dest, item)
+			os.mkdir(new_dest)
+			recursive_copy(file_path, new_dest)
+
+if os.path.exists('docs/'):
+	shutil.rmtree('docs/')
+os.makedirs('docs/')
+recursive_copy('dist/', 'docs/')
+input('Done.')"""
+
 files_to_create = {
 	'README.md': readme_text%data,
 	'LICENSE': license_text%data,
@@ -385,6 +405,7 @@ files_to_create = {
 	'dev.bat': 'call npm run dev\nPAUSE',
 	'prod.bat': 'call npm run build\nPAUSE',
 	'localhost.bat': 'ECHO OFF\nECHO Starting server in current directory to port 8000\n\ncd dist\nstart chrome --new-tab "http://localhost:8000/"\npy -m http.server\nPAUSE',
+	'deploy_to_doc.py': deploy_to_docs_py,
 }
 
 folder_name = project_dev_name
@@ -443,4 +464,3 @@ subprocess.check_call('npm run dev-no-watch', shell=True)
 
 print('Setup finished. Run localhost.bat and dev.bat to begin working. Ctrl+Shift+R to hard reload the webpage if cached from another project.')
 input('Press any key to continue . . .')
-
