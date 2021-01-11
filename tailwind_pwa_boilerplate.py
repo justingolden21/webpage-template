@@ -183,6 +183,9 @@ src_styles_text = """@tailwind base;
 	::selection {
 		@apply bg-gray-100;
 	}
+	*:focus, button:focus {
+		@apply outline-none ring-2 ring-indigo-300;
+	}
 
 	h1 {
 		@apply text-2xl font-light;
