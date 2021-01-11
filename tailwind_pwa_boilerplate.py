@@ -133,7 +133,7 @@ manifest_json_text = """{
 	"name": "%(project_name)s",
 	"short_name": "%(project_name)s",
 	"description": "%(project_description)s",
-	"start_url": "/dist/index.html",
+	"start_url": "index.html",
 	"display": "standalone",
 	"background_color": "%(project_color)s",
 	"theme_color": "%(project_color)s",
