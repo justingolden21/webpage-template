@@ -91,7 +91,7 @@ package_text = """{
 	"version": "1.0.0",
 	"description": "%(project_description)s",
 	"scripts": {
-                "dev-no-watch": "postcss src/styles.css -o dist/css/styles.css",
+		"dev-no-watch": "postcss src/styles.css -o dist/css/styles.css",
 		"dev": "postcss src/styles.css -o dist/css/styles.css --watch",
 		"build": "cross-env NODE_ENV=production postcss src/styles.css -o dist/css/styles.css && cleancss -o dist/css/styles.css dist/css/styles.css"
 	},
