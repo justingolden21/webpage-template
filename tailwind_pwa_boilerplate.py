@@ -8,7 +8,7 @@ project_name = input('project name:\n')
 project_description = input('project description:\n')
 project_dev_name = project_name.lower().replace(' ', '-')
 project_keywords = input('project keywords (separate by commas):\n')
-project_keywords_list = str(project_keywords.split(',') ).replace('\'','"') # double quotes for json
+project_keywords_list = str([s.strip(' ') for s in project_keywords.split(',')] ).replace('\'','"') # double quotes for json
 project_color = input('project color:\n')
 if(project_color == ''):
 	project_color = '#FFFFFF'
