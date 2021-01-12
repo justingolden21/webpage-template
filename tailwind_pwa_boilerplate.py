@@ -394,8 +394,7 @@ def recursive_copy(src, dest):
 if os.path.exists('docs/'):
 	shutil.rmtree('docs/')
 os.makedirs('docs/')
-recursive_copy('dist/', 'docs/')
-input('Done.')"""
+recursive_copy('dist/', 'docs/')"""
 
 files_to_create = {
 	'README.md': readme_text%data,
@@ -406,7 +405,7 @@ files_to_create = {
 	'tailwind.config.js': tailwind_config_text,
 	'postcss.config.js': postcss_config_text,
 	'dev.bat': 'call npm run dev\nPAUSE',
-	'prod.bat': 'call npm run build\nPAUSE',
+	'prod.bat': 'call npm run build\npy deploy_to_docs.py\nPAUSE',
 	'localhost.bat': 'ECHO OFF\nECHO Starting server in current directory to port 8000\n\ncd dist\nstart chrome --new-tab "http://localhost:8000/"\npy -m http.server\nPAUSE',
 	'deploy_to_doc.py': deploy_to_docs_py,
 }
