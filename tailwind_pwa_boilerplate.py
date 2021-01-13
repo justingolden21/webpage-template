@@ -215,7 +215,7 @@ src_styles_text = """@tailwind base;
 }"""
 
 dist_js_text = """if('serviceWorker' in navigator){
-	navigator.serviceWorker.register('/sw.js')
+	navigator.serviceWorker.register('sw.js')
 		.then(reg => console.log('service worker registered'))
 		.catch(err => console.log('service worker not registered', err));
 }"""
@@ -406,7 +406,7 @@ files_to_create = {
 	'postcss.config.js': postcss_config_text,
 	'dev.bat': 'call npm run dev\nPAUSE',
 	'prod.bat': 'call npm run build\npy deploy_to_docs.py\nPAUSE',
-	'localhost.bat': 'ECHO OFF\nECHO Starting server in current directory to port 8000\n\ncd dist\nstart chrome --new-tab "http://localhost:8000/"\npy -m http.server\nPAUSE',
+	'localhost.bat': 'ECHO OFF\nECHO Starting server in current directory to port 8000\n\ncd dist\nstart chrome --new-tab "http://localhost:8000/"\npy -m http.server',
 	'deploy_to_doc.py': deploy_to_docs_py,
 }
 
