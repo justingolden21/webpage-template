@@ -73,16 +73,15 @@ SOFTWARE."""
 gitattributes_text = """# Auto detect text files and perform LF normalization
 * text=auto"""
 
-gitignore_text = """node_modules/
-dist/css/"""
+gitignore_text = """node_modules/"""
 
 package_text = """{
   "name": "%(project_dev_name)s",
   "version": "1.0.0",
   "description": "%(project_description)s",
   "scripts": {
-    "dev": "postcss src/styles.css -o dist/css/styles.css --watch",
-    "build": "cross-env NODE_ENV=production postcss src/styles.css -o dist/css/styles.css && cleancss -o dist/css/styles.css dist/css/styles.css"
+    "dev": "postcss src/styles.css -o docs/css/styles.css --watch",
+    "build": "cross-env NODE_ENV=production postcss src/styles.css -o docs/css/styles.css && cleancss -o docs/css/styles.css docs/css/styles.css"
   },
   "keywords": [],
   "author": "%(project_author)s",
@@ -98,8 +97,8 @@ package_text = """{
 
 tailwind_config_text = """module.exports = {
   purge: [
-    './dist/**/*.html',
-    './dist/**/*.js'
+    './docs/**/*.html',
+    './docs/**/*.js'
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -202,16 +201,16 @@ for key in files_to_create:
 		f.write(files_to_create[key])
 
 create_dir(folder_name + '/src')
-create_dir(folder_name + '/dist')
-create_dir(folder_name + '/dist/css')
-create_dir(folder_name + '/dist/img')
-create_dir(folder_name + '/dist/js')
+create_dir(folder_name + '/docs')
+create_dir(folder_name + '/docs/css')
+create_dir(folder_name + '/docs/img')
+create_dir(folder_name + '/docs/js')
 
 with open(folder_name + '/src/styles.css', 'x') as f:
 	f.write(src_styles_text)
-with open(folder_name + '/dist/js/scripts.js', 'x') as f:
+with open(folder_name + '/docs/js/scripts.js', 'x') as f:
 	f.write(dist_js_text)
-with open(folder_name + '/dist/index.html', 'x') as f:
+with open(folder_name + '/docs/index.html', 'x') as f:
 	f.write(index_html_text%data)
 
 input('Press any key to continue . . .')
@@ -223,13 +222,4 @@ dir_path += '/' + folder_name
 os.chdir(dir_path)
 subprocess.check_call('npm install', shell=True)
 
-input('Press any key to continue . . .')
-
-# print('Opening Project in Chrome, File Explorer, and Sublime Text...')
-
-# chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
-# sublime_path = 'C:/Program Files/Sublime Text 3/sublime_text.exe'
-
-# webbrowser.get(chrome_path).open('file://' + dir_path + '/dist/index.html')
-# subprocess.Popen([sublime_path, dir_path])
-# os.startfile(dir_path)
+input('Setup complete. Press any key to continue . . .')
