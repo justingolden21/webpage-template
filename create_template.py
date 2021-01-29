@@ -65,8 +65,8 @@ SOFTWARE."""
 gitattributes_text = """# Auto detect text files and perform LF normalization
 * text=auto"""
 
-gitignore_text = """node_modules/
-dist/css/"""
+gitignore_text = """
+"""
 
 localhost_text = """ECHO OFF
 ECHO Starting server in current directory to port 8000
@@ -75,25 +75,24 @@ start chrome --new-tab "http://localhost:8000/"
 py -m http.server
 PAUSE"""
 
-css_text = """img, button {
-	user-drag: none; 
-	user-select: none;
-	-moz-user-select: none;
-	-webkit-user-drag: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-}
-::-moz-selection {
+css_text = """::-moz-selection {
 	background: #e6e6e6;
 }
 ::selection {
 	background: #e6e6e6;
 }
 
-body {
+* {
 	font-family: system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji';
-	text-align: center;
+}
+
+body {
 	margin: 1rem;
+}
+h1 {
+	text-align: center;
+	font-weight: lighter;
+	letter-spacing: 0.1rem;
 }
 
 @media (min-width: 640px) { /* sm */
