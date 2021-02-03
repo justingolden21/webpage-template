@@ -84,16 +84,16 @@ gitattributes_text = """# Auto detect text files and perform LF normalization
 * text=auto"""
 
 gitignore_text = """node_modules/
-dist/css/"""
+docs/css/"""
 
 package_text = """{
 	"name": "%(project_dev_name)s",
 	"version": "1.0.0",
 	"description": "%(project_description)s",
 	"scripts": {
-		"dev-no-watch": "postcss src/styles.css -o dist/css/styles.css",
-		"dev": "postcss src/styles.css -o dist/css/styles.css --watch",
-		"build": "cross-env NODE_ENV=production postcss src/styles.css -o dist/css/styles.css && cleancss -o dist/css/styles.css dist/css/styles.css"
+		"dev-no-watch": "postcss src/styles.css -o docs/css/styles.css",
+		"dev": "postcss src/styles.css -o docs/css/styles.css --watch",
+		"build": "cross-env NODE_ENV=production postcss src/styles.css -o docs/css/styles.css && cleancss -o docs/css/styles.css docs/css/styles.css"
 	},
 	"keywords": %(project_keywords_list)s,
 	"author": "%(project_author)s",
@@ -109,8 +109,8 @@ package_text = """{
 
 tailwind_config_text = """module.exports = {
 	purge: [
-		'./dist/**/*.html',
-		'./dist/**/*.js'
+		'./docs/**/*.html',
+		'./docs/**/*.js'
 	],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
@@ -214,7 +214,7 @@ src_styles_text = """@tailwind base;
 @media (min-width: 1280px) { /* xl */
 }"""
 
-dist_js_text = """if('serviceWorker' in navigator){
+docs_js_text = """if('serviceWorker' in navigator){
 	navigator.serviceWorker.register('sw.js')
 		.then(reg => console.log('service worker registered'))
 		.catch(err => console.log('service worker not registered', err));
@@ -377,25 +377,6 @@ html_404_text = """<!DOCTYPE html>
 </body>
 </html>"""
 
-deploy_to_docs_py = """import os, shutil
-
-def recursive_copy(src, dest):
-	for item in os.listdir(src):
-		file_path = os.path.join(src, item)
-
-		if os.path.isfile(file_path):
-			shutil.copy(file_path, dest)
-
-		elif os.path.isdir(file_path):
-			new_dest = os.path.join(dest, item)
-			os.mkdir(new_dest)
-			recursive_copy(file_path, new_dest)
-
-if os.path.exists('docs/'):
-	shutil.rmtree('docs/')
-os.makedirs('docs/')
-recursive_copy('dist/', 'docs/')"""
-
 files_to_create = {
 	'README.md': readme_text%data,
 	'LICENSE': license_text%data,
@@ -405,9 +386,8 @@ files_to_create = {
 	'tailwind.config.js': tailwind_config_text,
 	'postcss.config.js': postcss_config_text,
 	'dev.bat': 'call npm run dev\nPAUSE',
-	'prod.bat': 'call npm run build\npy deploy_to_docs.py\nPAUSE',
-	'localhost.bat': 'ECHO OFF\nECHO Starting server in current directory to port 8000\n\ncd dist\nstart chrome --new-tab "http://localhost:8000/"\npy -m http.server',
-	'deploy_to_doc.py': deploy_to_docs_py,
+	'prod.bat': 'call npm run build\nPAUSE',
+	'localhost.bat': 'ECHO OFF\nECHO Starting server in current directory to port 8000\n\ncd docs\nstart chrome --new-tab "http://localhost:8000/"\npy -m http.server',
 }
 
 folder_name = project_dev_name
@@ -419,26 +399,26 @@ for key in files_to_create:
 		f.write(files_to_create[key])
 
 create_dir(folder_name + '/src')
-create_dir(folder_name + '/dist')
-create_dir(folder_name + '/dist/css')
-create_dir(folder_name + '/dist/img')
-create_dir(folder_name + '/dist/img/icons')
-create_dir(folder_name + '/dist/js')
-create_dir(folder_name + '/dist/pages')
+create_dir(folder_name + '/docs')
+create_dir(folder_name + '/docs/css')
+create_dir(folder_name + '/docs/img')
+create_dir(folder_name + '/docs/img/icons')
+create_dir(folder_name + '/docs/js')
+create_dir(folder_name + '/docs/pages')
 
 with open(folder_name + '/src/styles.css', 'x') as f:
 	f.write(src_styles_text)
-with open(folder_name + '/dist/js/scripts.js', 'x') as f:
-	f.write(dist_js_text)
-with open(folder_name + '/dist/sw.js', 'x') as f:
+with open(folder_name + '/docs/js/scripts.js', 'x') as f:
+	f.write(docs_js_text)
+with open(folder_name + '/docs/sw.js', 'x') as f:
 	f.write(service_worker_js_text%data)
-with open(folder_name + '/dist/manifest.json', 'x') as f:
+with open(folder_name + '/docs/manifest.json', 'x') as f:
 	f.write(manifest_json_text%data)
-with open(folder_name + '/dist/index.html', 'x') as f:
+with open(folder_name + '/docs/index.html', 'x') as f:
 	f.write(index_html_text%data)
-with open(folder_name + '/dist/404.html', 'x') as f:
+with open(folder_name + '/docs/404.html', 'x') as f:
 	f.write(html_404_text%data)
-with open(folder_name + '/dist/pages/fallback.html', 'x') as f:
+with open(folder_name + '/docs/pages/fallback.html', 'x') as f:
 	f.write(fallback_html_text%data)
 
 # copy icons
@@ -446,7 +426,7 @@ src_files = os.listdir('icons/')
 for file_name in src_files:
 	full_file_name = os.path.join('icons/', file_name)
 	if os.path.isfile(full_file_name):
-		shutil.copy(full_file_name, folder_name + '/dist/img/icons/')
+		shutil.copy(full_file_name, folder_name + '/docs/img/icons/')
 
 input('Press any key to continue . . .')
 
