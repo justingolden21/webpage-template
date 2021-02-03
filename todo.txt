@@ -1,0 +1,7 @@
+Change dist to docs, remove "move to docs" python script from tailwind PWA
+
+Create template for jekyll tailwind site
+
+Remove copy/paste files (python scripts only)
+
+Test on linux
