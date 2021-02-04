@@ -387,6 +387,7 @@ files_to_create = {
 	'postcss.config.js': postcss_config_text,
 	'dev.bat': 'call npm run dev\nPAUSE',
 	'prod.bat': 'call npm run build\nPAUSE',
+	'.gitignore': 'node_modules/',
 	'localhost.bat': 'ECHO OFF\nECHO Starting server in current directory to port 8000\n\ncd docs\nstart chrome --new-tab "http://localhost:8000/"\npy -m http.server',
 }
 
