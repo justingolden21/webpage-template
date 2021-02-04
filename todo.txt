@@ -5,3 +5,5 @@ Create template for jekyll tailwind site
 Remove copy/paste files (python scripts only)
 
 Test on linux
+
+add postcss-import to package.json and postcss.config.json (allows for @importing other css files in preprocessor)
