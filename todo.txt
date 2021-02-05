@@ -8,4 +8,6 @@ Test on linux
 
 Add postcss-import to package.json and postcss.config.json (allows for @importing other css files in preprocessor) in both tailwind template and tailwind pwa template
 
+Rename icons from "icon48x48" to "icon48" syntax
+
 Create setup for dynamically generating python scripts (share readme, index, etc among several scripts for easy updates in future)
