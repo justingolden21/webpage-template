@@ -299,9 +299,9 @@ index_html_text = """<!DOCTYPE html>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="%(project_description)s">
 	<meta name="keywords" content="%(project_keywords)s">
-	<link rel="shortcut icon" href="/img/icons/icon-96x96.png">
-	<link rel="manifest" href="/manifest.json">
-	<link rel="apple-touch-icon" href="/img/icons/icon-96x96.png">
+	<link rel="shortcut icon" href="img/icons/icon-96x96.png">
+	<link rel="manifest" href="manifest.json">
+	<link rel="apple-touch-icon" href="img/icons/icon-96x96.png">
 	<meta name="apple-mobile-web-app-status-bar" content="%(project_color)s">
 	<meta name="theme-color" content="%(project_color)s">
 
