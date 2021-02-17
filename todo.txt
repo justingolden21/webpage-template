@@ -2,8 +2,6 @@ Change dist to docs, remove "move to docs" python script from tailwind PWA
 
 Create template for jekyll tailwind site
 
-Remove copy/paste files (python scripts only)
-
 Test on linux
 
 Add postcss-import to package.json and postcss.config.json (allows for @importing other css files in preprocessor) in both tailwind template and tailwind pwa template
@@ -13,3 +11,5 @@ Rename icons from "icon48x48" to "icon48" syntax
 Create setup for dynamically generating python scripts (share readme, index, etc among several scripts for easy updates in future)
 
 Update package.json to dev dependencies and add concurrently and local-dev script from my chmod repo
+
+add default *:focus styles in templates
