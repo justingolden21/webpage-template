@@ -103,6 +103,7 @@ package_text = """{
 		"clean-css-cli": "^4.3.0",
 		"cross-env": "^7.0.3",
 		"postcss-cli": "^8.3.1",
+		"postcss-import": "^14.0.0",
 		"tailwindcss": "^2.0.2"
 	}
 }"""
@@ -124,6 +125,7 @@ tailwind_config_text = """module.exports = {
 
 postcss_config_text = """module.exports = {
 	plugins: [
+		require('postcss-import'),
 		require('tailwindcss'),
 		require('autoprefixer')
 	]

@@ -1,5 +1,3 @@
-add postcss-import to package.json and postcss.config.json (allows for @importing other css files in preprocessor) in both tailwind template and tailwind pwa template
-
 update package.json to dev dependencies and add concurrently and local-dev script from my chmod repo
 
 future:
