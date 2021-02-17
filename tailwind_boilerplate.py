@@ -86,7 +86,7 @@ package_text = """{
   "keywords": [],
   "author": "%(project_author)s",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "autoprefixer": "^10.1.0",
     "clean-css-cli": "^4.3.0",
     "cross-env": "^7.0.3",

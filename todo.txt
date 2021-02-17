@@ -1,4 +1,4 @@
-update package.json to dev dependencies and add concurrently and local-dev script from my chmod repo
+add concurrently and local-dev script from my chmod repo
 
 future:
 create setup for dynamically generating python scripts (share readme, index, etc among several scripts for easy updates in future)
