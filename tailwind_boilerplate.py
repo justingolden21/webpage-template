@@ -123,10 +123,13 @@ src_styles_text = """@tailwind base;
 
 @layer base {
 	::-moz-selection {
-		@apply bg-gray-100;
+		@apply bg-indigo-100;
 	}
 	::selection {
-		@apply bg-gray-100;
+		@apply bg-indigo-100;
+	}
+	*:focus, button:focus {
+		@apply outline-none ring-2 ring-indigo-300;
 	}
 
 	h1 {
@@ -156,7 +159,7 @@ src_styles_text = """@tailwind base;
 @media (min-width: 1280px) { /* xl */
 }"""
 
-dist_js_text = """window.onload = ()=> console.log('page loaded');"""
+js_text = """window.onload = ()=> console.log('page loaded');"""
 
 index_html_text = """<!DOCTYPE html>
 <html lang="en">
@@ -209,7 +212,7 @@ create_dir(folder_name + '/docs/js')
 with open(folder_name + '/src/styles.css', 'x') as f:
 	f.write(src_styles_text)
 with open(folder_name + '/docs/js/scripts.js', 'x') as f:
-	f.write(dist_js_text)
+	f.write(js_text)
 with open(folder_name + '/docs/index.html', 'x') as f:
 	f.write(index_html_text%data)
 

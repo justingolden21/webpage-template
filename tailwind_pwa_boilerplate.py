@@ -140,32 +140,32 @@ manifest_json_text = """{
 	"orientation": "portrait-primary",
 	"icons": [
 		{
-			"src": "img/icons/icon-48x48.png",
+			"src": "img/icons/icon48.png",
 			"type": "image/png",
 			"sizes": "48x48"
 		},
 		{
-			"src": "img/icons/icon-72x72.png",
+			"src": "img/icons/icon72.png",
 			"type": "image/png",
 			"sizes": "72x72"
 		},
 		{
-			"src": "img/icons/icon-96x96.png",
+			"src": "img/icons/icon96.png",
 			"type": "image/png",
 			"sizes": "96x96"
 		},
 		{
-			"src": "img/icons/icon-144x144.png",
+			"src": "img/icons/icon144.png",
 			"type": "image/png",
 			"sizes": "144x144"
 		},
 		{
-			"src": "img/icons/icon-192x192.png",
+			"src": "img/icons/icon192.png",
 			"type": "image/png",
 			"sizes": "192x192"
 		},
 		{
-			"src": "img/icons/icon-512x512.png",
+			"src": "img/icons/icon512.png",
 			"type": "image/png",
 			"sizes": "512x512"
 		}
@@ -178,10 +178,10 @@ src_styles_text = """@tailwind base;
 
 @layer base {
 	::-moz-selection {
-		@apply bg-gray-100;
+		@apply bg-indigo-100;
 	}
 	::selection {
-		@apply bg-gray-100;
+		@apply bg-indigo-100;
 	}
 	*:focus, button:focus {
 		@apply outline-none ring-2 ring-indigo-300;
@@ -229,7 +229,7 @@ const assets = [
 	'/pages/fallback.html',
 	'/js/scripts.js',
 	'/css/styles.css',
-	'/img/icons/icon-96x96.png',
+	'/img/icons/icon96.png',
 ];
 
 // cache size limit function
@@ -299,9 +299,9 @@ index_html_text = """<!DOCTYPE html>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="%(project_description)s">
 	<meta name="keywords" content="%(project_keywords)s">
-	<link rel="shortcut icon" href="img/icons/icon-96x96.png">
+	<link rel="shortcut icon" href="img/icons/icon96.png">
 	<link rel="manifest" href="manifest.json">
-	<link rel="apple-touch-icon" href="img/icons/icon-96x96.png">
+	<link rel="apple-touch-icon" href="img/icons/icon96.png">
 	<meta name="apple-mobile-web-app-status-bar" content="%(project_color)s">
 	<meta name="theme-color" content="%(project_color)s">
 
@@ -325,9 +325,9 @@ fallback_html_text = """<!DOCTYPE html>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="%(project_description)s">
 	<meta name="keywords" content="%(project_keywords)s">
-	<link rel="shortcut icon" href="../img/icons/icon-96x96.png">
+	<link rel="shortcut icon" href="../img/icons/icon96.png">
 	<link rel="manifest" href="../manifest.json">
-	<link rel="apple-touch-icon" href="../img/icons/icon-96x96.png">
+	<link rel="apple-touch-icon" href="../img/icons/icon96.png">
 	<meta name="apple-mobile-web-app-status-bar" content="%(project_color)s">
 	<meta name="theme-color" content="%(project_color)s">
 
@@ -356,9 +356,9 @@ html_404_text = """<!DOCTYPE html>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="%(project_description)s">
 	<meta name="keywords" content="%(project_keywords)s">
-	<link rel="shortcut icon" href="/img/icons/icon-96x96.png">
+	<link rel="shortcut icon" href="/img/icons/icon96.png">
 	<link rel="manifest" href="/manifest.json">
-	<link rel="apple-touch-icon" href="/img/icons/icon-96x96.png">
+	<link rel="apple-touch-icon" href="/img/icons/icon96.png">
 	<meta name="apple-mobile-web-app-status-bar" content="%(project_color)s">
 	<meta name="theme-color" content="%(project_color)s">
 
