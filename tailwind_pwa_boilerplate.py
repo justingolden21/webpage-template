@@ -92,8 +92,11 @@ package_text = """{
 	"description": "%(project_description)s",
 	"scripts": {
 		"dev-no-watch": "postcss src/styles.css -o docs/css/styles.css",
-		"dev": "postcss src/styles.css -o docs/css/styles.css --watch",
+		"dev": "postcss src/styles.css -o docs/css/styles.css --watch --verbose",
+		"localhost": "cd docs && ( py -V && py -m http.server ) || ( python3 -V && python3 -m http.server )",
+		"local-dev": "concurrently --kill-others \"npm run dev\" \"npm run localhost\"",
 		"build": "cross-env NODE_ENV=production postcss src/styles.css -o docs/css/styles.css && cleancss -o docs/css/styles.css docs/css/styles.css"
+		"prod": "npm run build && ( py -V && py increment.py ) || ( python3 -V && python3 increment.py )"
 	},
 	"keywords": %(project_keywords_list)s,
 	"author": "%(project_author)s",
@@ -101,6 +104,7 @@ package_text = """{
 	"devDependencies": {
 		"autoprefixer": "^10.1.0",
 		"clean-css-cli": "^4.3.0",
+		"concurrently": "^5.3.0",
 		"cross-env": "^7.0.3",
 		"postcss-cli": "^8.3.1",
 		"postcss-import": "^14.0.0",
@@ -379,6 +383,21 @@ html_404_text = """<!DOCTYPE html>
 </body>
 </html>"""
 
+increment_py = """import re
+with open('docs/sw.js', 'r+') as f:
+    lines = f.readlines()
+
+    arr = lines[1].split('-')
+    v_num = re.sub('[^0-9]', '', arr[2])
+    v_num = str(int(v_num) + 1)
+    arr[2] = 'v' + v_num + '\';\n'
+    lines[1] = '-'.join(arr)
+
+    f.seek(0)
+    f.writelines(lines)
+
+    print('Incremented to v' + v_num)"""
+
 files_to_create = {
 	'README.md': readme_text%data,
 	'LICENSE': license_text%data,
@@ -387,6 +406,7 @@ files_to_create = {
 	'package.json': package_text%data,
 	'tailwind.config.js': tailwind_config_text,
 	'postcss.config.js': postcss_config_text,
+	'increment.py': increment_py,
 	'dev.bat': 'call npm run dev\nPAUSE',
 	'prod.bat': 'call npm run build\nPAUSE',
 	'.gitignore': 'node_modules/',

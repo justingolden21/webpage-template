@@ -80,7 +80,7 @@ package_text = """{
   "version": "1.0.0",
   "description": "%(project_description)s",
   "scripts": {
-    "dev": "postcss src/styles.css -o docs/css/styles.css --watch",
+    "dev": "postcss src/styles.css -o docs/css/styles.css --watch --verbose",
     "build": "cross-env NODE_ENV=production postcss src/styles.css -o docs/css/styles.css && cleancss -o docs/css/styles.css docs/css/styles.css"
   },
   "keywords": [],
