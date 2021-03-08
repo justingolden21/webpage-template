@@ -94,8 +94,8 @@ package_text = """{
 		"dev-no-watch": "postcss src/styles.css -o docs/css/styles.css",
 		"dev": "postcss src/styles.css -o docs/css/styles.css --watch --verbose",
 		"localhost": "cd docs && ( py -V && py -m http.server ) || ( python3 -V && python3 -m http.server )",
-		"local-dev": "concurrently --kill-others \"npm run dev\" \"npm run localhost\"",
-		"build": "cross-env NODE_ENV=production postcss src/styles.css -o docs/css/styles.css && cleancss -o docs/css/styles.css docs/css/styles.css"
+		"local-dev": "concurrently --kill-others \\\"npm run dev\\\" \\\"npm run localhost\\\"",
+		"build": "cross-env NODE_ENV=production postcss src/styles.css -o docs/css/styles.css && cleancss -o docs/css/styles.css docs/css/styles.css",
 		"prod": "npm run build && ( py -V && py increment.py ) || ( python3 -V && python3 increment.py )"
 	},
 	"keywords": %(project_keywords_list)s,
