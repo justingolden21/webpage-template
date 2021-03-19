@@ -390,7 +390,7 @@ with open('docs/sw.js', 'r+') as f:
     arr = lines[1].split('-')
     v_num = re.sub('[^0-9]', '', arr[2])
     v_num = str(int(v_num) + 1)
-    arr[2] = 'v' + v_num + '\';\n'
+    arr[2] = 'v' + v_num + '\\';\\n'
     lines[1] = '-'.join(arr)
 
     f.seek(0)
