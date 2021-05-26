@@ -122,6 +122,8 @@ html_text = """<!DOCTYPE html>
 	<meta name="description" content="%(project_description)s">
 	<meta name="keywords" content="">
 	<!-- <link rel="shortcut icon" href="img/icon.png"> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/umbrellajs"></script> -->
+	<!-- <script src="https://raw.githubusercontent.com/justingolden21/umbrella/master/umbrella.min.js"></script> -->
 
 	<link rel="stylesheet" href="css/styles.css">
 	<script src="js/scripts.js"></script>
