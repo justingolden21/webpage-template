@@ -36,11 +36,11 @@ readme_text = """# %(project_name)s
 
 ### Development
 
-First time setup: `npm install`
+First time setup: `npm i`
 
-Development: `npm run dev`
+Development: `npm run local-dev`
 
-Production: `npm run build`
+Production: `npm run prod`
 
 Localhost: run `localhost.bat` if you have Python3 installed
 
@@ -91,10 +91,10 @@ package_text = """{
 	"version": "1.0.0",
 	"description": "%(project_description)s",
 	"scripts": {
+		"server": "live-server --open=docs",
 		"dev-no-watch": "postcss src/styles.css -o docs/css/styles.css",
 		"dev": "postcss src/styles.css -o docs/css/styles.css --watch --verbose",
-		"localhost": "cd docs && ( py -V && py -m http.server ) || ( python3 -V && python3 -m http.server )",
-		"local-dev": "concurrently --kill-others \\\"npm run dev\\\" \\\"npm run localhost\\\"",
+		"local-dev": "concurrently --kill-others \\\"npm run dev\\\" \\\"npm run server\\\"",
 		"build": "cross-env NODE_ENV=production postcss src/styles.css -o docs/css/styles.css && cleancss -o docs/css/styles.css docs/css/styles.css",
 		"prod": "npm run build && ( py -V && py increment.py ) || ( python3 -V && python3 increment.py )"
 	},
@@ -106,6 +106,7 @@ package_text = """{
 		"clean-css-cli": "^4.3.0",
 		"concurrently": "^5.3.0",
 		"cross-env": "^7.0.3",
+		"live-server": "^1.2.1",
 		"postcss-cli": "^8.3.1",
 		"postcss-import": "^14.0.0",
 		"tailwindcss": "^2.0.2"
@@ -410,7 +411,6 @@ files_to_create = {
 	'dev.bat': 'call npm run dev\nPAUSE',
 	'prod.bat': 'call npm run build\nPAUSE',
 	'.gitignore': 'node_modules/',
-	'localhost.bat': 'ECHO OFF\nECHO Starting server in current directory to port 8000\n\ncd docs\nstart chrome --new-tab "http://localhost:8000/"\npy -m http.server',
 }
 
 folder_name = project_dev_name
