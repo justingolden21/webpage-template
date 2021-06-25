@@ -42,8 +42,6 @@ Development: `npm run local-dev`
 
 Production: `npm run prod`
 
-Localhost: run `localhost.bat` if you have Python3 installed
-
 ### Links
 
 - Live demo: %(homepage)s/%(project_dev_name)s
@@ -408,8 +406,8 @@ files_to_create = {
 	'tailwind.config.js': tailwind_config_text,
 	'postcss.config.js': postcss_config_text,
 	'increment.py': increment_py,
-	'dev.bat': 'call npm run dev\nPAUSE',
-	'prod.bat': 'call npm run build\nPAUSE',
+	'dev.bat': 'call npm run local-dev\nPAUSE',
+	'prod.bat': 'call npm run prod\nPAUSE',
 	'.gitignore': 'node_modules/',
 }
 
@@ -451,7 +449,7 @@ for file_name in src_files:
 	if os.path.isfile(full_file_name):
 		shutil.copy(full_file_name, folder_name + '/docs/img/icons/')
 
-input('Press any key to continue . . .')
+input('Installing packages next. Press any key to continue . . .')
 
 print('Installing Packages...')
 
@@ -461,11 +459,11 @@ dir_path += '/' + folder_name
 os.chdir(dir_path)
 subprocess.check_call('npm install', shell=True)
 
-input('Press any key to continue . . .')
+input('Building CSS next. Press any key to continue . . .')
 print('Building CSS for the first time')
 
 # build css first time
 subprocess.check_call('npm run dev-no-watch', shell=True)
 
-print('Setup finished. Run localhost.bat and dev.bat to begin working. Ctrl+Shift+R to hard reload the webpage if cached from another project.')
+print('Setup finished. Ctrl+Shift+R to hard reload the webpage if cached from another project.')
 input('Press any key to continue . . .')
