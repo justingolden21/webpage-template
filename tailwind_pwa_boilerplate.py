@@ -199,10 +199,10 @@ src_styles_text = """@import "./components/button.css";
 
 @layer base {
 	::-moz-selection {
-		@apply bg-indigo-100;
+		@apply bg-gray-100;
 	}
 	::selection {
-		@apply bg-indigo-100;
+		@apply bg-gray-100;
 	}
 	*:focus, button:focus {
 		@apply outline-none ring-2 ring-indigo-300;
@@ -479,7 +479,7 @@ dir_path += '/' + folder_name
 os.chdir(dir_path)
 subprocess.check_call('npm i', shell=True)
 
-input('Building CSS next. Press any key to continue . . .')
+input('Press any key to continue . . .')
 print('Building CSS for the first time')
 
 print('Setup finished. npm run dev-serve to begin working. Ctrl+Shift+R to hard reload the webpage if cached from another project. Copy your icon to src/img/icon.svg and npm run generate-assets to add your icon.')
