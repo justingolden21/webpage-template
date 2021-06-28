@@ -1,3 +1,16 @@
+
+# todo: minify html and js
+# have them start in src and copied to dist
+# check file links after moving files
+# copy script:
+# const fs = require('fs-extra')
+# fs.copySync('assets/', 'dist/assets')
+
+# todo: test in depth
+# deploy on netlify, install pwa on multiple devices
+# check all tailwind styles applied (inline classes, stylesheets, imports)
+# check file sizes, performance, lighthouse
+
 import os, datetime, subprocess, shutil
 
 def create_dir(dir):
@@ -9,7 +22,7 @@ project_description = input('project description:\n')
 project_dev_name = project_name.lower().replace(' ', '-')
 project_keywords = input('project keywords (separate by commas):\n')
 project_keywords_list = str([s.strip(' ') for s in project_keywords.split(',')] ).replace('\'','"') # double quotes for json
-project_color = input('project color:\n')
+project_color = input('project color (default #FFF):\n')
 if(project_color == ''):
 	project_color = '#FFFFFF'
 print('Creating Files...')
@@ -89,8 +102,9 @@ gitignore_text = """node_modules/
 """
 
 netlify_text = """[build]
-	publish = "dist"
-	command = "npm run prod"""
+	publish = "dist/"
+	command = "npm run prod"
+"""
 
 imgbot_config = """{
 	"schedule": "daily",
