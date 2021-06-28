@@ -28,9 +28,9 @@ readme_text = """# %(project_name)s
 
 ### Development
 
-First time setup: `npm install`
+First time setup: `npm i`
 
-Development: `npm run dev`
+Development: `npm run local-dev`
 
 Production: `npm run build`
 
@@ -80,17 +80,22 @@ package_text = """{
   "version": "1.0.0",
   "description": "%(project_description)s",
   "scripts": {
-    "dev": "postcss src/styles.css -o docs/css/styles.css --watch",
+    "server": "live-server --open=docs",
+    "dev": "postcss src/styles.css -o docs/css/styles.css --watch --verbose",
+    "local-dev": "concurrently --kill-others \\\"npm run dev\\\" \\\"npm run server\\\"",
     "build": "cross-env NODE_ENV=production postcss src/styles.css -o docs/css/styles.css && cleancss -o docs/css/styles.css docs/css/styles.css"
   },
   "keywords": [],
   "author": "%(project_author)s",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "autoprefixer": "^10.1.0",
     "clean-css-cli": "^4.3.0",
+    "concurrently": "^5.3.0",
     "cross-env": "^7.0.3",
+    "live-server": "^1.2.1",
     "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.0",
     "tailwindcss": "^2.0.2"
   }
 }"""
@@ -112,6 +117,7 @@ tailwind_config_text = """module.exports = {
 
 postcss_config_text = """module.exports = {
   plugins: [
+    require('postcss-import'),
     require('tailwindcss'),
     require('autoprefixer')
   ]
@@ -123,10 +129,13 @@ src_styles_text = """@tailwind base;
 
 @layer base {
 	::-moz-selection {
-		@apply bg-gray-100;
+		@apply bg-indigo-100;
 	}
 	::selection {
-		@apply bg-gray-100;
+		@apply bg-indigo-100;
+	}
+	*:focus, button:focus {
+		@apply outline-none ring-2 ring-indigo-300;
 	}
 
 	h1 {
@@ -156,7 +165,7 @@ src_styles_text = """@tailwind base;
 @media (min-width: 1280px) { /* xl */
 }"""
 
-dist_js_text = """window.onload = ()=> console.log('page loaded');"""
+js_text = """window.onload = ()=> console.log('page loaded');"""
 
 index_html_text = """<!DOCTYPE html>
 <html lang="en">
@@ -188,8 +197,6 @@ files_to_create = {
 	'package.json': package_text%data,
 	'tailwind.config.js': tailwind_config_text,
 	'postcss.config.js': postcss_config_text,
-	'dev.bat': 'call npm run dev\nPAUSE',
-	'prod.bat': 'call npm run build\nPAUSE',
 }
 
 folder_name = project_dev_name
@@ -209,7 +216,7 @@ create_dir(folder_name + '/docs/js')
 with open(folder_name + '/src/styles.css', 'x') as f:
 	f.write(src_styles_text)
 with open(folder_name + '/docs/js/scripts.js', 'x') as f:
-	f.write(dist_js_text)
+	f.write(js_text)
 with open(folder_name + '/docs/index.html', 'x') as f:
 	f.write(index_html_text%data)
 
