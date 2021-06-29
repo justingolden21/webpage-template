@@ -130,35 +130,21 @@ with open('dist/sw.js', 'r+') as f:
 	print('Incremented to v' + v_num)"""
 
 eslint_text = """{
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
-    }
-}"""
-
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": [
+		"airbnb-base"
+	],
+	"parserOptions": {
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"rules": {
+	}
+}
+"""
 
 package_text = """{
 	"name": "%(project_dev_name)s",
@@ -182,6 +168,8 @@ package_text = """{
 		"concurrently": "^5.3.0",
 		"cross-env": "^7.0.3",
 		"eslint": "^7.29.0",
+		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-plugin-import": "^2.23.4",
 		"live-server": "^1.2.1",
 		"postcss-cli": "^8.3.1",
 		"postcss-import": "^14.0.2",
