@@ -142,9 +142,19 @@ eslint_text = """{
 		"sourceType": "module"
 	},
 	"rules": {
+		"indent": [
+			"warn",
+			"tab"
+		],
+		"quotes": [
+			"warn",
+			"single"
+		],
+		"no-unused-vars": "warn",
+		"no-console": "off",
+		"func-names": "off"
 	}
-}
-"""
+}"""
 
 package_text = """{
 	"name": "%(project_dev_name)s",
