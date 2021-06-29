@@ -137,6 +137,7 @@ package_text = """{
 		"dev": "postcss src/styles.css -o dist/css/styles.css --watch",
 		"build": "cross-env NODE_ENV=production postcss src/styles.css -o dist/css/styles.css && cleancss -o dist/css/styles.css dist/css/styles.css",
 		"prod": "npm run build && ( py -V && py increment.py ) || ( python3 -V && python3 increment.py )",
+		"lint": "eslint dist/js/ --ext .js --ignore-pattern \\"dist/js/lib/*\\"",
 		"serve": "live-server --open=dist",
 		"dev-serve": "concurrently --kill-others \\"npm run dev\\" \\"npm run serve\\"",
 		"generate-assets": "pwa-asset-generator src/img/icon.svg dist/img/icons --manifest dist/manifest.webmanifest --index dist/index.html --favicon --mstile --icon-only"
@@ -149,6 +150,7 @@ package_text = """{
 		"clean-css-cli": "^4.3.0",
 		"concurrently": "^5.3.0",
 		"cross-env": "^7.0.3",
+		"eslint": "^7.29.0",
 		"live-server": "^1.2.1",
 		"postcss-cli": "^8.3.1",
 		"postcss-import": "^14.0.2",
