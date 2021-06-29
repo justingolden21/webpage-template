@@ -129,6 +129,37 @@ with open('dist/sw.js', 'r+') as f:
 
 	print('Incremented to v' + v_num)"""
 
+eslint_text = """{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}"""
+
+
 package_text = """{
 	"name": "%(project_dev_name)s",
 	"version": "1.0.0",
@@ -437,6 +468,7 @@ files_to_create = {
 	'LICENSE': license_text%data,
 	'.gitattributes': gitattributes_text,
 	'.gitignore': gitignore_text,
+	'.eslintrc.json': eslint_text,
 	'netlify.toml': netlify_text,
 	'.imgbotconfig': imgbot_config,
 	'increment.py': increment_py,
