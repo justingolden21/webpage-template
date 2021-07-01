@@ -152,6 +152,7 @@ eslint_text = """{
 		],
 		"no-unused-vars": "warn",
 		"no-console": "off",
+		"no-tabs": "off",
 		"func-names": "off"
 	}
 }"""
