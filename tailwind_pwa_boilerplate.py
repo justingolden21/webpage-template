@@ -385,8 +385,8 @@ index_html_text = """<!DOCTYPE html>
 	<meta name="theme-color" content="%(project_color)s">
 
 	<link rel="stylesheet" href="css/styles.css">
-	<script src="js/scripts.js"></script>
 	<script src="js/lib/umbrella.min.js"></script>
+	<script src="js/scripts.js"></script>
 </head>
 <body class="text-center m-2 text-gray-900">
 	<section>
