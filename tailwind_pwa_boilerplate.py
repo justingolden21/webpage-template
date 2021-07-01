@@ -293,6 +293,8 @@ dist_js_text = """if('serviceWorker' in navigator){
 		.catch(err => console.log('service worker not registered', err));
 }
 
+/* global u */
+
 window.addEventListener('load', () => {
 	u('.btn').on('click', () => console.log('clicked') );
 });
